@@ -14,7 +14,7 @@ import Link from "next/link";
 const Home = () => {
   return (
     <>
-      <header className="px-4">
+      <header className="px-4 relative">
         <Navbar />
 
         <div
@@ -94,16 +94,21 @@ const Home = () => {
             </MotionElement>
           </div>
         </div>
+
+        <div
+          className="rounded-full w-46 h-46 bg-[#8e53f482] absolute left-0 bottom-0 lg:-bottom-30 -z-10
+            blur-[135px] lg:w-86 lg:h-86 lg:blur-[236px]"
+        ></div>
       </header>
 
       <main>
-        <section id="brands-section">
+        <section id="brands-section" className="overflow-hidden">
           <div className="xl:container xl:mx-auto pt-32 pb-24 px-4">
             <Brands />
           </div>
         </section>
 
-        <section id="collections-section-1">
+        <section id="collections-section-1" className="overflow-hidden">
           <div className="xl:container xl:mx-auto pt-24 pb-32 px-4 flex flex-col gap-y-8">
             <GSAPAnimation animation="fadeUp" start="top 80%">
               <h2 className="font-bold text-6xl leading-normal text-center text-[#f2f2f2]">
@@ -115,7 +120,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="top-creators-section">
+        <section id="top-creators-section" className="overflow-hidden">
           <div className="xl:container xl:mx-auto py-24 px-4 flex flex-col gap-y-8">
             <div className="flex flex-col gap-y-8 items-center">
               <GSAPAnimation animation="fadeUp" start="top 80%">
@@ -223,7 +228,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="collections-section-2">
+        <section id="collections-section-2" className="overflow-hidden">
           <div className="xl:container xl:mx-auto py-24 px-4 flex flex-col gap-y-8">
             <div className="flex flex-col gap-y-8">
               <GSAPAnimation animation="fadeUp" start="top 80%">
@@ -243,8 +248,8 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="latest-blogs-section" className="relative">
-          <div className="xl:container xl:mx-auto py-24 px-4 flex flex-col gap-y-8">
+        <section id="latest-blogs-section" className="overflow-hidden">
+          <div className="xl:container xl:mx-auto py-24  px-4 flex flex-col gap-y-8">
             <div className="flex flex-col gap-y-4">
               <GSAPAnimation animation="fadeUp" start="top 80%">
                 <h2 className="font-bold text-6xl leading-normal text-[#f2f2f2]">
@@ -266,11 +271,6 @@ const Home = () => {
 
             <LatestBlogs />
           </div>
-
-          <div
-            className="rounded-full w-46 h-46 bg-[#8e53f482] absolute right-0 -bottom-40 -z-10
-            blur-[135px] lg:w-52 lg:h-52 lg:blur-[150px]"
-          ></div>
         </section>
       </main>
 

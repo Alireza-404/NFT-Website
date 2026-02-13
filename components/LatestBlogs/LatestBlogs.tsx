@@ -66,7 +66,32 @@ const LatestBlogs = () => {
         });
       });
 
-      mm.add("(max-width: 1023px)", () => {});
+      mm.add("(max-width: 1023px)", () => {
+        const boxes = [
+          { selector: ".box-1", x: -100 },
+          { selector: ".box-3", x: -100 },
+          { selector: ".box-2", x: 100 },
+          { selector: ".box-4", x: 100 },
+        ];
+
+        boxes.forEach(({ selector, x }) => {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: container.current?.querySelector(selector),
+                start: "top 80%",
+                toggleActions: "play none none reverse",
+              },
+            })
+            .from(selector, {
+              opacity: 0,
+              x,
+              y: 0,
+              duration: 0.5,
+              ease: "power3.out",
+            });
+        });
+      });
     }, container);
 
     return () => ctx.revert();

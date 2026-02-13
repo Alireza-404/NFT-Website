@@ -18,7 +18,7 @@ const GSAPAnimation = ({
   children,
   delay = 0,
   animation = "fadeUp",
-  start = "80",
+  start,
   className,
 }: Props) => {
   const container = useRef<HTMLDivElement | null>(null);

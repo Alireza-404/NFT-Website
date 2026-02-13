@@ -18,7 +18,12 @@ const Navbar = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
-        <img src={"/images/Header/logo.png"} alt="Main-Logo" loading="lazy" />
+        <img
+          src={"/images/Header/logo.png"}
+          alt="Main-Logo"
+          loading="lazy"
+          className="select-none"
+        />
 
         <FiMenu className="text-[#f2f2f2] text-3xl cursor-pointer" />
       </motion.nav>
@@ -34,7 +39,7 @@ const Navbar = () => {
           src={"/images/Header/logo.png"}
           alt="Main-Logo"
           loading="lazy"
-          className="xl:block hidden"
+          className="xl:block hidden select-none"
         />
 
         <NavLinks />

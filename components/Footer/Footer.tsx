@@ -28,7 +28,7 @@ const Footer = () => {
   const resourcesLinksArray = ["情報", "アフィリエイト", "関連企業", "ブログ"];
 
   return (
-    <footer>
+    <footer className="relative">
       <div className="xl:container xl:mx-auto pt-36 flex flex-col gap-y-20">
         <div className="grid grid-cols-1 px-4 gap-10 md:grid-cols-2 lg:flex lg:justify-between">
           <div className="flex flex-col gap-y-6 lg:w-80">
@@ -186,6 +186,11 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+      <div
+        className="rounded-full w-46 h-46 bg-[#8e53f482] absolute right-0 top-0 -z-10
+            blur-[135px] lg:w-52 lg:h-52 lg:blur-[150px]"
+      ></div>
     </footer>
   );
 };
