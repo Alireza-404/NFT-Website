@@ -79,7 +79,7 @@ const LatestBlogs = () => {
             .timeline({
               scrollTrigger: {
                 trigger: container.current?.querySelector(selector),
-                start: "top 80%",
+                start: "bottom bottom",
                 toggleActions: "play none none reverse",
               },
             })
