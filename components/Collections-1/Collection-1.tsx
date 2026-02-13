@@ -109,6 +109,7 @@ const Collections1 = () => {
       <Swiper
         ref={container}
         modules={[Pagination]}
+        spaceBetween={12}
         slidesPerView={1}
         watchSlidesProgress
         breakpoints={{
