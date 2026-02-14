@@ -1,14 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import NavLinks from "../NavLinks/NavLinks";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import Link from "next/link";
 import SecondaryButton from "../Buttons/SecondaryButton";
+import { useState } from "react";
 
 const Navbar = () => {
+  const root = window.document.documentElement;
+
+  const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
+
   return (
     <>
       <motion.nav
@@ -25,8 +30,58 @@ const Navbar = () => {
           className="select-none"
         />
 
-        <FiMenu className="text-[#f2f2f2] text-3xl cursor-pointer" />
+        <FiMenu
+          className="text-[#f2f2f2] text-3xl cursor-pointer"
+          onClick={() => {
+            setIsMenuActive(true);
+            root.classList.add("overflow-hidden");
+            root.classList.remove("overflow-auto");
+          }}
+        />
       </motion.nav>
+
+      <AnimatePresence>
+        {isMenuActive && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="w-80 xs:w-96 md:w-104 fixed top-0 bottom-0 right-0 bg-[#04040c] z-50 p-5 lg:hidden 
+            flex flex-col gap-y-12"
+          >
+            <div className="flex items-center justify-between">
+              <h5 className="text-[#f2f2f2] text-lg font-semibold">メニュー</h5>
+
+              <span className="py-1 cursor-pointer text-red-500">
+                <FiX className="text-[26px]" />
+              </span>
+            </div>
+
+            <NavLinks />
+
+            <div className="grid grid-cols-2 gap-3 mt-5">
+              <PrimaryButton type="button" className="h-12">
+                <Link href={"#"}>ログイン</Link>
+              </PrimaryButton>
+
+              <SecondaryButton type="button" className="h-12 p-px">
+                <Link href={"#"}>新規登録</Link>
+              </SecondaryButton>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div
+        onClick={() => {
+          setIsMenuActive(false);
+          root.classList.add("overflow-auto");
+          root.classList.remove("overflow-hidden");
+        }}
+        className={`inset-0 fixed bg-black/55 lg:hidden 
+          ${isMenuActive ? "opacity-100 visible" : "opacity-0 invisible"}`}
+      ></div>
 
       <motion.nav
         className="h-34 w-full hidden lg:flex items-center justify-between xl:px-10"
