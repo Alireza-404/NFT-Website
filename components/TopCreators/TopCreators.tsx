@@ -58,7 +58,7 @@ const TopCreators = () => {
           opacity: 0,
           y: -100,
           x: -100,
-          duration: 0.5,
+          duration: 0.4,
           ease: "power3.out",
         })
           .from(
@@ -67,7 +67,7 @@ const TopCreators = () => {
               opacity: 0,
               y: 100,
               x: 100,
-              duration: 0.5,
+              duration: 0.4,
               ease: "power3.out",
             },
             ">",
@@ -77,7 +77,7 @@ const TopCreators = () => {
             {
               opacity: 0,
               y: -100,
-              duration: 0.5,
+              duration: 0.4,
               ease: "power3.out",
             },
             ">",
@@ -87,7 +87,7 @@ const TopCreators = () => {
             {
               opacity: 0,
               y: 100,
-              duration: 0.5,
+              duration: 0.4,
               ease: "power3.out",
             },
             "<",

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 interface NavLinksInterface {
   href: string;
@@ -10,8 +11,11 @@ interface NavLinksInterface {
 
 const NavLinks = () => {
   const pathname = usePathname();
+  const rootRef = useRef<HTMLElement | null>(null);
 
-  console.log(pathname);
+  useEffect(() => {
+    rootRef.current = document.documentElement;
+  }, []);
 
   const navLinksArray: NavLinksInterface[] = [
     { href: "/", text: "ホーム" },
@@ -30,6 +34,10 @@ const NavLinks = () => {
           <li key={i} className="select-none w-full lg:w-auto">
             <Link
               href={item.href}
+              onClick={() => {
+                rootRef.current?.classList.add("overflow-auto");
+                rootRef.current?.classList.remove("overflow-hidden");
+              }}
               className={`text-lg font-semibold inline-block w-full lg:inline lg:w-auto text-center lg:text-start ${
                 isActive
                   ? "text-[#a95bf3]"
