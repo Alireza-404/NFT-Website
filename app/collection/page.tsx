@@ -1,9 +1,9 @@
-import BestCreators from "@/components/BestCreators/BestCreatoes";
+import CollectionItems from "@/components/Collection/Collection";
 import Footer from "@/components/Footer/Footer";
 import MotionElement from "@/components/MotionElemetn/MotionElement";
 import Navbar from "@/components/Navbar/Navbar";
 
-const Creators = () => {
+const Collection = () => {
   return (
     <>
       <header className="px-4">
@@ -11,7 +11,7 @@ const Creators = () => {
       </header>
 
       <main>
-        <section className="best-creatoes-section">
+        <section className="collection-section">
           <div className="xl:container xl:mx-auto pt-32 pb-8 px-4 flex flex-col gap-y-16">
             <MotionElement
               elem="h2"
@@ -21,11 +21,11 @@ const Creators = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="font-bold text-6xl leading-normal text-center text-[#f2f2f2]"
             >
-              私たちの最高のクリエイターたち
+              私たちのコレクション
             </MotionElement>
 
             <div>
-              <BestCreators />
+              <CollectionItems />
             </div>
           </div>
         </section>
@@ -36,4 +36,4 @@ const Creators = () => {
   );
 };
 
-export default Creators;
+export default Collection;

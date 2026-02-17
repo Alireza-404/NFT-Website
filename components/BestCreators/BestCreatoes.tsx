@@ -19,7 +19,7 @@ const BestCreators = () => {
 
       mm.add("(min-width: 1024px)", () => {
         const tl = gsap.timeline({
-          defaults: { ease: "power3.out" },
+          defaults: { ease: "power3.out", delay: 0.3 },
         });
 
         tl.from(self.selector(".row-1 .box"), {

@@ -6,23 +6,12 @@ import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-interface CollectionsArrayInterface {
-  id: number;
-  src: string;
-}
+import { Collections2Data_Home } from "@/Data/Collections-2";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Collections2 = () => {
   const container = useRef<null | HTMLDivElement>(null);
-
-  const collectionsArray: CollectionsArrayInterface[] = [
-    { id: 1, src: "/images/Collections-2/collection-1.jpg" },
-    { id: 2, src: "/images/Collections-2/collection-2.jpg" },
-    { id: 3, src: "/images/Collections-2/collection-3.jpg" },
-    { id: 4, src: "/images/Collections-2/collection-4.jpg" },
-  ];
 
   useLayoutEffect(() => {
     const ctx = gsap.context((self: any) => {
@@ -113,8 +102,8 @@ const Collections2 = () => {
       ref={container}
       className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 sm:gap-4 md:gap-8 lg:grid-cols-4 lg:gap-6"
     >
-      {collectionsArray.map((item) => (
-        <motion.div
+      {Collections2Data_Home.map((item) => (
+        <div
           key={item.id}
           className={`box box-${item.id} rounded-full p-0.5`}
           style={{
@@ -146,7 +135,7 @@ const Collections2 = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   );

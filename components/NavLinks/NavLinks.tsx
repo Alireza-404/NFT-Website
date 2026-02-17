@@ -21,7 +21,7 @@ const NavLinks = () => {
     { href: "/", text: "ホーム" },
     { href: "/marketplace", text: "マーケット" },
     { href: "/creators", text: "クリエイタ" },
-    { href: "/collections", text: "コレクション" },
+    { href: "/collection", text: "コレクション" },
     { href: "/blog", text: "ブログ" },
   ];
 

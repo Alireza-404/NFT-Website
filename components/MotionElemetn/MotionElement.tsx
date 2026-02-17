@@ -3,7 +3,7 @@
 import { motion, MotionProps } from "framer-motion";
 
 interface Props extends MotionProps {
-  elem: "div" | "p" | "img";
+  elem: "div" | "p" | "img" | "h2" | "h3";
   text?: string;
   className?: string;
   src?: string;
@@ -23,6 +23,8 @@ const MotionElement = ({
   const MotionElem = {
     p: motion.p,
     div: motion.div,
+    h2: motion.h2,
+    h3: motion.h3,
     button: motion.button,
     img: motion.img,
   }[elem];
