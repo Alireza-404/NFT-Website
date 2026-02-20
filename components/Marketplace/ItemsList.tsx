@@ -128,7 +128,7 @@ const ItemsList = ({ filteredItems }: Props) => {
         ))}
       </Swiper>
 
-      <div className="flex items-center justify-center mt-16 gap-x-2.5">
+      <div className="flex items-center justify-center mt-8 lg:mt-10 gap-x-2.5">
         <div className="flex items-center justify-center mt-16 gap-x-2.5">
           {swiperRef.current &&
             Array.from({

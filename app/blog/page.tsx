@@ -1,9 +1,10 @@
-import CollectionItems from "@/components/CollectionItems/CollectionItems";
+import BestCreators from "@/components/BestCreators/BestCreatoes";
+import BlogItems from "@/components/BlogItems/BlogItems";
 import Footer from "@/components/Footer/Footer";
 import MotionElement from "@/components/MotionElemetn/MotionElement";
 import Navbar from "@/components/Navbar/Navbar";
 
-const Collection = () => {
+const Blog = () => {
   return (
     <>
       <header className="px-4">
@@ -11,7 +12,7 @@ const Collection = () => {
       </header>
 
       <main>
-        <section className="collection-section">
+        <section className="best-creatoes-section">
           <div className="xl:container xl:mx-auto pt-32 pb-8 px-4 flex flex-col gap-y-16">
             <MotionElement
               elem="h2"
@@ -21,11 +22,11 @@ const Collection = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="font-bold text-6xl leading-normal text-center text-[#f2f2f2]"
             >
-              私たちのコレクション
+              私たちの最高のクリエイターたち
             </MotionElement>
 
             <div>
-              <CollectionItems />
+              <BlogItems />
             </div>
           </div>
         </section>
@@ -36,4 +37,4 @@ const Collection = () => {
   );
 };
 
-export default Collection;
+export default Blog;

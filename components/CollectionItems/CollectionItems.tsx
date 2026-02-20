@@ -59,8 +59,11 @@ const CollectionItems = () => {
           key={item.id}
           className={`box box-${item.id} rounded-full p-0.5`}
           style={{
-            background:
-              "linear-gradient(to top left, #6847f5, #a95bf3, #5baff3, #f3ee5b)",
+            background: `linear-gradient(to top left, ${
+              item.id === 1 || item.id === 3 || item.id === 6 || item.id === 8
+                ? "#478af5, #f29e5a, #5bdff3, #d75bf3"
+                : "#5baff3, #a95bf3, #6847f5, #f3ee5b"
+            })`,
           }}
         >
           <div

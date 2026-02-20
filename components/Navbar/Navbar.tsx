@@ -75,11 +75,21 @@ const Navbar = () => {
 
             <div className="grid grid-cols-2 gap-3 mt-5">
               <PrimaryButton type="button" className="h-12">
-                <Link href="#">ログイン</Link>
+                <Link
+                  href="/login"
+                  className="flex h-full w-full items-center justify-center"
+                >
+                  ログイン
+                </Link>
               </PrimaryButton>
 
               <SecondaryButton type="button" className="h-12 p-px">
-                <Link href="#">新規登録</Link>
+                <Link
+                  href="#"
+                  className="flex h-full w-full items-center justify-center"
+                >
+                  新規登録
+                </Link>
               </SecondaryButton>
             </div>
           </motion.div>
@@ -110,11 +120,21 @@ const Navbar = () => {
 
         <div className="flex items-center gap-x-6">
           <PrimaryButton type="button" className="h-14 w-36">
-            <Link href="#">ログイン</Link>
+            <Link
+              href="/login"
+              className="flex h-full w-full items-center justify-center"
+            >
+              ログイン
+            </Link>
           </PrimaryButton>
 
           <SecondaryButton type="button" className="h-14 w-36 p-px">
-            <Link href="#">新規登録</Link>
+            <Link
+              href="#"
+              className="flex h-full w-full items-center justify-center"
+            >
+              新規登録
+            </Link>
           </SecondaryButton>
         </div>
       </motion.nav>

@@ -73,7 +73,7 @@ const Home = () => {
                 className="w-full md:w-96 md:mx-auto xl:mx-0 xl:h-14 h-12 lg:w-full xl:w-55"
               >
                 <Link
-                  href={"#"}
+                  href={"/login"}
                   className="h-full w-full flex items-center justify-center"
                 >
                   はじめる
