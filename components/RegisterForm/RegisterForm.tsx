@@ -1,8 +1,41 @@
+"use client";
+
+import { FormEvent, useState } from "react";
 import PrimaryButton from "../Buttons/PrimaryButton";
 
+interface RegisterFormTypes {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 const RegisterForm = () => {
+  const [form, setForm] = useState<RegisterFormTypes>({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = async (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    setError(null);
+    setSuccess(null);
+  };
+
   return (
-    <form className="flex flex-col gap-y-5">
+    <form className="flex flex-col gap-y-5" onSubmit={handleSubmit}>
       <input
         type="text"
         id="fullName"
@@ -12,6 +45,7 @@ const RegisterForm = () => {
         name="fullName"
         minLength={3}
         maxLength={28}
+        onChange={handleChange}
         required
       />
 
@@ -22,6 +56,7 @@ const RegisterForm = () => {
       border-[#2E314F] bg-[#161929] focus:border-[#404368] transition duration-200"
         placeholder="あなたのメールアドレス"
         name="email"
+        onChange={handleChange}
         required
       />
 
@@ -35,6 +70,7 @@ const RegisterForm = () => {
         name="password"
         minLength={8}
         maxLength={12}
+        onChange={handleChange}
         required
       />
 
@@ -48,15 +84,24 @@ const RegisterForm = () => {
         name="confirmPassword"
         minLength={8}
         maxLength={12}
+        onChange={handleChange}
         required
       />
 
-      <PrimaryButton
-        type="submit"
-        className="w-full h-12 mt-8 sm:h-14 lg:text-lg"
-      >
-        新規登録
-      </PrimaryButton>
+      <div className="mt-8 flex flex-col gap-y-3 text-center">
+        {error && <strong className="text-red-500 text-wrap">{error}</strong>}
+        {success && (
+          <strong className="text-green-500 text-wrap">{success}</strong>
+        )}
+
+        <PrimaryButton
+          disabled={loading}
+          type="submit"
+          className="w-full h-12 sm:h-14 lg:text-lg"
+        >
+          新規登録
+        </PrimaryButton>
+      </div>
     </form>
   );
 };

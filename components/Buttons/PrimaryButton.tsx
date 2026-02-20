@@ -6,9 +6,10 @@ interface Props {
   type: "submit" | "reset" | "button";
   className: string;
   children: string | React.ReactNode;
+  disabled?: boolean;
 }
 
-const PrimaryButton = ({ type, className, children }: Props) => {
+const PrimaryButton = ({ type, className, children, disabled }: Props) => {
   return (
     <motion.button
       type={type}
@@ -22,6 +23,7 @@ const PrimaryButton = ({ type, className, children }: Props) => {
         backgroundPosition: "100% 100%",
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
+      disabled={disabled}
     >
       {children}
     </motion.button>
