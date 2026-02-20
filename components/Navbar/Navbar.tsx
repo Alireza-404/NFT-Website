@@ -85,7 +85,7 @@ const Navbar = () => {
 
               <SecondaryButton type="button" className="h-12 p-px">
                 <Link
-                  href="#"
+                  href="/sign-up"
                   className="flex h-full w-full items-center justify-center"
                 >
                   新規登録
@@ -130,7 +130,7 @@ const Navbar = () => {
 
           <SecondaryButton type="button" className="h-14 w-36 p-px">
             <Link
-              href="#"
+              href="sign-up"
               className="flex h-full w-full items-center justify-center"
             >
               新規登録
