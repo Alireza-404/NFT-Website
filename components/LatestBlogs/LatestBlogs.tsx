@@ -5,7 +5,7 @@ import GlowBox from "../GlowBox/GlowBox";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import { BlogData } from "@/Data/Blog";
+import { BlogData } from "@/data/Blog";
 
 gsap.registerPlugin(ScrollTrigger);
 

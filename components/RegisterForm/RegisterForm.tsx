@@ -1,7 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 interface RegisterFormTypes {
   fullName: string;
@@ -11,6 +13,9 @@ interface RegisterFormTypes {
 }
 
 const RegisterForm = () => {
+  const router = useRouter();
+  const { setUser } = useUser();
+
   const [form, setForm] = useState<RegisterFormTypes>({
     fullName: "",
     email: "",
@@ -21,6 +26,7 @@ const RegisterForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -32,6 +38,46 @@ const RegisterForm = () => {
 
     setError(null);
     setSuccess(null);
+    setIsSuccess(false);
+
+    if (form.password !== form.confirmPassword) {
+      setError("パスワードが一致しません。");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: form.fullName,
+          email: form.email,
+          password: form.password,
+        }),
+      });
+
+      if (!res.ok) {
+        setError("エラーが発生しました。もう一度お試しください。");
+        return;
+      }
+
+      setUser({ email: form.email });
+      setIsSuccess(true);
+      setSuccess("登録が完了しました。");
+      setLoading(false);
+
+      setTimeout(() => {
+        router.replace("/");
+      }, 1500);
+    } catch {
+      setError("エラーが発生しました。もう一度お試しください。");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -95,7 +141,7 @@ const RegisterForm = () => {
         )}
 
         <PrimaryButton
-          disabled={loading}
+          disabled={loading || isSuccess}
           type="submit"
           className="w-full h-12 sm:h-14 lg:text-lg"
         >

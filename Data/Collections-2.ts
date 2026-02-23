@@ -1,4 +1,4 @@
-import { Collections2Types } from "@/Types/Collections-2";
+import { Collections2Types } from "@/types/Collections-2";
 
 export const Collections2Data_Home: Collections2Types[] = [
   { id: 1, src: "/images/Collections-2/collection-1.jpg" },

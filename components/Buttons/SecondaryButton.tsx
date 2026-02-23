@@ -5,15 +5,17 @@ import { motion } from "framer-motion";
 interface Props {
   type: "submit" | "reset" | "button";
   className: string;
+  click?: () => void;
   children: string | React.ReactNode;
 }
 
-const SecondaryButton = ({ type, className, children }: Props) => {
+const SecondaryButton = ({ type, className, click, children }: Props) => {
   return (
     <motion.button
       type={type}
       className={`group relative z-20 text-[#f2f2f2] font-medium select-none
         cursor-pointer bg-gradient-to-t from-[#9565f5] via-[#a95bf3] to-[#6847f5] xl:text-lg ${className}`}
+      onClick={click}
       style={{
         backgroundSize: "300% 300%",
         backgroundPosition: "0% 0%",
