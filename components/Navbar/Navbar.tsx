@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
-import NavLinks from "../NavLinks/NavLinks";
+import NavLinks from "../NavbarLinks/NavLinks";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import Link from "next/link";
