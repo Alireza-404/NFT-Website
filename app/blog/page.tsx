@@ -1,4 +1,4 @@
-import BestCreators from "@/components/BestCreators/BestCreatoes";
+import BestCreators from "@/components/BestCreators/BestCreators";
 import BlogItems from "@/components/BlogItems/BlogItems";
 import Footer from "@/components/Footer/Footer";
 import MotionElement from "@/components/MotionElemetn/MotionElement";

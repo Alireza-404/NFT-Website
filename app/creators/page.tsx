@@ -1,4 +1,4 @@
-import BestCreators from "@/components/BestCreators/BestCreatoes";
+import BestCreators from "@/components/BestCreators/BestCreators";
 import Footer from "@/components/Footer/Footer";
 import MotionElement from "@/components/MotionElemetn/MotionElement";
 import Navbar from "@/components/Navbar/Navbar";

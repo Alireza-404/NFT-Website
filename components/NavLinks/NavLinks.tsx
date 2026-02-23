@@ -11,7 +11,7 @@ interface NavLinksInterface {
 
 const NavLinks = () => {
   const pathname = usePathname();
-  const rootRef = useRef<HTMLElement | null>(null);
+  const rootRef = useRef<any>(null);
 
   useEffect(() => {
     rootRef.current = document.documentElement;
