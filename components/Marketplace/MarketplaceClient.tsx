@@ -5,8 +5,8 @@ import ItemsList from "./ItemsList";
 import Filters from "./Filters";
 
 import { MarketPlaceData } from "@/data/Marketplace";
-import { useMemo, useState } from "react";
 import { MarketplaceTypes } from "@/types/Marketplace";
+import { useMemo, useState } from "react";
 
 const MarketplaceClient = () => {
   const [search, setSearch] = useState<string>("");
