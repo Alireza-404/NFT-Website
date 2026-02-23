@@ -1,6 +1,6 @@
 import { TopCreatorsTypes } from "@/types/TopCreators";
 
-export const TopCreatorsData: TopCreatorsTypes[] = [
+export const topCreatorsData: TopCreatorsTypes[] = [
   {
     id: 1,
     src: "/images/TopCreators/creator-1.jpg",
