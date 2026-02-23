@@ -4,7 +4,6 @@ import Link from "next/link";
 import gsap from "gsap";
 
 import { useLayoutEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Collections2Data_Home } from "@/data/Collections-2";
 

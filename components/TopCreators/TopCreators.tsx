@@ -6,7 +6,7 @@ import GlowBox from "../GlowBox/GlowBox";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import { topCreatorsData } from "@/data/TopCreators";
+import { TopCreatorsData } from "@/data/TopCreators";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,7 +102,7 @@ const TopCreators = () => {
       ref={container}
       className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 md:gap-8 lg:grid-cols-4 lg:gap-6"
     >
-      {topCreatorsData.map((item) => (
+      {TopCreatorsData.map((item) => (
         <div className={`box box-${item.id}`} key={item.id}>
           <GlowBox
             key={item.id}
