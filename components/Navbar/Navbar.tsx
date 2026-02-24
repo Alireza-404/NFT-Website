@@ -81,7 +81,7 @@ const Navbar = () => {
                     className="col-span-2 flex flex-col gap-y-2"
                   >
                     <span className="text-white">
-                      {user.user_metadata.fullName || user.email}
+                      {user?.user_metadata?.fullName || user?.email || "User"}
                     </span>
                     <SecondaryButton
                       type="button"
@@ -163,7 +163,7 @@ const Navbar = () => {
                   animate={{ backgroundPosition: ["0% 200%", "200% 0%"] }}
                   transition={{ duration: 2.4, repeat: Infinity }}
                 >
-                  {user.user_metadata.fullName || user.email}
+                  {user?.user_metadata?.fullName || user?.email || "User"}
                 </motion.span>
                 <SecondaryButton
                   type="button"

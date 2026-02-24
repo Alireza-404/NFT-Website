@@ -39,7 +39,7 @@ const LoginForm = () => {
         return;
       }
 
-      setUser({ email: form.email });
+      setUser({ email: form.email.split("@")[0] });
 
       setSuccess("ログインに成功しました。");
       setIsSuccess(true);

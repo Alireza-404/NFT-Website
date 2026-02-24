@@ -65,7 +65,7 @@ const RegisterForm = () => {
         return;
       }
 
-      setUser({ email: form.email });
+      setUser({ email: form.email.split("@")[0] });
       setIsSuccess(true);
       setSuccess("登録が完了しました。");
       setLoading(false);
