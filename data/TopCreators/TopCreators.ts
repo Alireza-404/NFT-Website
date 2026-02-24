@@ -1,4 +1,4 @@
-import { TopCreatorsTypes } from "@/types/TopCreators";
+import { TopCreatorsTypes } from "@/types/TopCreators/TopCreators";
 
 export const TopCreatorsData: TopCreatorsTypes[] = [
   {

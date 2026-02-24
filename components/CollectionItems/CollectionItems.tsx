@@ -3,7 +3,7 @@
 import gsap from "gsap";
 import Link from "next/link";
 
-import { Collections2Data_Collection } from "@/data/Collections-2";
+import { Collections2Data_Collection } from "@/data/Collections-2/Collections-2";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 

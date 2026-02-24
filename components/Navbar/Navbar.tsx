@@ -7,10 +7,12 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useUser } from "@/context/UserContext";
 
 const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const rootRef = useRef<HTMLElement | null>(null);
+  const { user, logout } = useUser();
 
   useEffect(() => {
     rootRef.current = document.documentElement;
@@ -69,27 +71,55 @@ const Navbar = () => {
             <NavLinks />
 
             <div className="grid grid-cols-2 gap-3 mt-5">
-              <PrimaryButton type="button" className="h-12">
-                <Link
-                  href="/login"
-                  className="flex h-full w-full items-center justify-center"
-                  onClick={closeMenu}
-                  replace
-                >
-                  ログイン
-                </Link>
-              </PrimaryButton>
+              <AnimatePresence mode="wait">
+                {user ? (
+                  <motion.div
+                    key="loggedInMobile"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="col-span-2 flex flex-col gap-y-2"
+                  >
+                    <span className="text-white">
+                      {user.user_metadata.fullName || user.email}
+                    </span>
+                    <SecondaryButton
+                      type="button"
+                      className="h-12 p-px"
+                      click={() => {
+                        logout();
+                        closeMenu();
+                      }}
+                    >
+                      ログアウト
+                    </SecondaryButton>
+                  </motion.div>
+                ) : (
+                  <>
+                    <PrimaryButton type="button" className="h-12">
+                      <Link
+                        href="/login"
+                        className="flex h-full w-full items-center justify-center"
+                        onClick={closeMenu}
+                        replace
+                      >
+                        ログイン
+                      </Link>
+                    </PrimaryButton>
 
-              <SecondaryButton type="button" className="h-12 p-px">
-                <Link
-                  href="/register"
-                  className="flex h-full w-full items-center justify-center"
-                  onClick={closeMenu}
-                  replace
-                >
-                  新規登録
-                </Link>
-              </SecondaryButton>
+                    <SecondaryButton type="button" className="h-12 p-px">
+                      <Link
+                        href="/register"
+                        className="flex h-full w-full items-center justify-center"
+                        onClick={closeMenu}
+                        replace
+                      >
+                        新規登録
+                      </Link>
+                    </SecondaryButton>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
           </motion.div>
         )}
@@ -117,25 +147,56 @@ const Navbar = () => {
         <NavLinks />
 
         <div className="flex items-center gap-x-6">
-          <PrimaryButton type="button" className="h-14 w-36">
-            <Link
-              href="/login"
-              className="flex h-full w-full items-center justify-center"
-              replace
-            >
-              ログイン
-            </Link>
-          </PrimaryButton>
+          <AnimatePresence mode="wait">
+            {user ? (
+              <motion.div
+                key="loggedInDesktop"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-x-6"
+              >
+                <motion.span
+                  className="bg-clip-text text-transparent 
+                  bg-gradient-to-r from-[#f2f2f2] via-[#aea6b1] to-[#f2f2f2] text-xl"
+                  style={{ backgroundSize: "200%" }}
+                  animate={{ backgroundPosition: ["0% 200%", "200% 0%"] }}
+                  transition={{ duration: 2.4, repeat: Infinity }}
+                >
+                  {user.user_metadata.fullName || user.email}
+                </motion.span>
+                <SecondaryButton
+                  type="button"
+                  className="h-14 w-36 p-px"
+                  click={() => logout()}
+                >
+                  ログアウト
+                </SecondaryButton>
+              </motion.div>
+            ) : (
+              <>
+                <PrimaryButton type="button" className="h-14 w-36">
+                  <Link
+                    href="/login"
+                    className="flex h-full w-full items-center justify-center"
+                    replace
+                  >
+                    ログイン
+                  </Link>
+                </PrimaryButton>
 
-          <SecondaryButton type="button" className="h-14 w-36 p-px">
-            <Link
-              href="/register"
-              className="flex h-full w-full items-center justify-center"
-              replace
-            >
-              新規登録
-            </Link>
-          </SecondaryButton>
+                <SecondaryButton type="button" className="h-14 w-36 p-px">
+                  <Link
+                    href="/register"
+                    className="flex h-full w-full items-center justify-center"
+                    replace
+                  >
+                    新規登録
+                  </Link>
+                </SecondaryButton>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       </motion.nav>
     </>

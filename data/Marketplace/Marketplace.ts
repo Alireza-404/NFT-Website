@@ -1,4 +1,4 @@
-import { MarketplaceTypes } from "@/types/Marketplace";
+import { MarketplaceTypes } from "@/types/Marketplace/Marketplace";
 
 export const MarketPlaceData: MarketplaceTypes[] = [
   {

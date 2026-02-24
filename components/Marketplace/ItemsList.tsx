@@ -4,7 +4,7 @@ import gsap from "gsap";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import Link from "next/link";
 
-import { MarketplaceTypes } from "@/types/Marketplace";
+import { MarketplaceTypes } from "@/types/Marketplace/Marketplace";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";

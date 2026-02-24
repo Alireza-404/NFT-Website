@@ -1,6 +1,6 @@
 "use client";
 
-import { MarketplaceFilterData } from "@/data/Marketplace";
+import { MarketplaceFilterData } from "@/data/Marketplace/Marketplace";
 
 interface Props {
   category: string;

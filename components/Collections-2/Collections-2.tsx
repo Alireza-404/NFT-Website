@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 import { useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Collections2Data_Home } from "@/data/Collections-2";
+import { Collections2Data_Home } from "@/data/Collections-2/Collections-2";
 
 gsap.registerPlugin(ScrollTrigger);
 

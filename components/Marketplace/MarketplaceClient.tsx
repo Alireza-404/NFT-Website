@@ -4,8 +4,8 @@ import SearchBar from "./SearchBar";
 import ItemsList from "./ItemsList";
 import Filters from "./Filters";
 
-import { MarketPlaceData } from "@/data/Marketplace";
-import { MarketplaceTypes } from "@/types/Marketplace";
+import { MarketPlaceData } from "@/data/Marketplace/Marketplace";
+import { MarketplaceTypes } from "@/types/Marketplace/Marketplace";
 import { useMemo, useState } from "react";
 
 const MarketplaceClient = () => {
