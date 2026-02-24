@@ -1,22 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { getSupabaseServerClient } from "@/lib/supabaseServer";
 
 export async function POST(req: NextRequest) {
   const { fullName, email, password } = await req.json();
 
-  const { error: createError } = await supabaseServer.auth.admin.createUser({
-    email,
-    password,
-    user_metadata: { fullName },
-    email_confirm: true,
-  });
+  const { error: createError } =
+    await getSupabaseServerClient().auth.admin.createUser({
+      email,
+      password,
+      user_metadata: { fullName },
+      email_confirm: true,
+    });
 
   if (createError) {
     return NextResponse.json({ error: createError.message }, { status: 400 });
   }
 
   const { data, error: loginError } =
-    await supabaseServer.auth.signInWithPassword({
+    await getSupabaseServerClient().auth.signInWithPassword({
       email,
       password,
     });

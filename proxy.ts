@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { getSupabaseServerClient } from "@/lib/supabaseServer";
 
 export async function proxy(req: NextRequest) {
   const token = req.cookies.get("sb-access-token")?.value;
@@ -14,7 +14,8 @@ export async function proxy(req: NextRequest) {
 
   if (token) {
     try {
-      const { data, error } = await supabaseServer.auth.getUser(token);
+      const { data, error } =
+        await getSupabaseServerClient().auth.getUser(token);
       if (!error && data.user) userExists = true;
     } catch {
       userExists = false;
