@@ -3,11 +3,9 @@
 import { useState } from "react";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/context/UserContext";
 
 const LoginForm = () => {
   const router = useRouter();
-  const { setUser } = useUser();
 
   const [form, setForm] = useState<{ email: string; password: string }>({
     email: "",
@@ -38,8 +36,6 @@ const LoginForm = () => {
         setError("エラーが発生しました。もう一度お試しください。");
         return;
       }
-
-      setUser({ email: form.email });
 
       setSuccess("ログインに成功しました。");
       setIsSuccess(true);

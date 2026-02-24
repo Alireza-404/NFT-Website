@@ -3,7 +3,6 @@
 import { useState } from "react";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/context/UserContext";
 
 interface RegisterFormTypes {
   fullName: string;
@@ -14,7 +13,6 @@ interface RegisterFormTypes {
 
 const RegisterForm = () => {
   const router = useRouter();
-  const { setUser } = useUser();
 
   const [form, setForm] = useState<RegisterFormTypes>({
     fullName: "",
@@ -65,7 +63,6 @@ const RegisterForm = () => {
         return;
       }
 
-      setUser({ email: form.email });
       setIsSuccess(true);
       setSuccess("登録が完了しました。");
       setLoading(false);
