@@ -30,13 +30,17 @@ const MarketplaceClient = () => {
     <>
       <section id="search-section">
         <div className="xl:container xl:mx-auto pt-32 pb-8 px-4">
-          <SearchBar setSearch={setSearch} />
+          <SearchBar setSearch={setSearch} search={search} />
         </div>
       </section>
 
       <section id="filter-and-items-section">
         <div className="xl:container xl:mx-auto pt-8 pb-24 px-4 flex flex-col gap-y-20">
-          <Filters setCategory={setCategory} category={category} />
+          <Filters
+            setCategory={setCategory}
+            category={category}
+            setSearch={setSearch}
+          />
 
           <ItemsList
             category={category}

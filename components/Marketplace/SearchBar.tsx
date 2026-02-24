@@ -2,8 +2,10 @@ import { FiSearch } from "react-icons/fi";
 
 const SearchBar = ({
   setSearch,
+  search,
 }: {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
+  search: string;
 }) => {
   return (
     <div className="relative w-fit mx-auto">
@@ -15,6 +17,7 @@ const SearchBar = ({
         spellCheck={false}
         type="text"
         name="search-items"
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
 

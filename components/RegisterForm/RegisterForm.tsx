@@ -143,9 +143,13 @@ const RegisterForm = () => {
         <PrimaryButton
           disabled={loading || isSuccess}
           type="submit"
-          className="w-full h-12 sm:h-14 lg:text-lg"
+          className="w-full h-12 sm:h-14 lg:text-lg flex items-center gap-x-2"
         >
           新規登録
+          <span
+            className={`border-y-2 border-l-2 rounded-full border-[#f2f2f2] animate-spin w-6 h-6
+              transition duration-200 ${loading ? "oapcity-100 visible" : "opacity-0 invisible"}`}
+          ></span>
         </PrimaryButton>
       </div>
     </form>

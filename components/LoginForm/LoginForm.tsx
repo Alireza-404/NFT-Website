@@ -45,7 +45,9 @@ const LoginForm = () => {
       setIsSuccess(true);
       setLoading(false);
 
-      router.replace("/");
+      setTimeout(() => {
+        router.replace("/");
+      }, 1500);
     } catch {
       setError("エラーが発生しました。もう一度お試しください。");
     } finally {
@@ -94,9 +96,13 @@ const LoginForm = () => {
         <PrimaryButton
           disabled={loading || isSuccess}
           type="submit"
-          className="w-full h-12 sm:h-14 lg:text-lg"
+          className="w-full h-12 sm:h-14 lg:text-lg flex items-center gap-x-2"
         >
           ログイン
+          <span
+            className={`border-y-2 border-l-2 rounded-full border-[#f2f2f2] animate-spin w-6 h-6
+              transition duration-200 ${loading ? "oapcity-100 visible" : "opacity-0 invisible"}`}
+          ></span>
         </PrimaryButton>
       </div>
     </form>

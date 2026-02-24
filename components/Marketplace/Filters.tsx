@@ -5,9 +5,10 @@ import { MarketplaceFilterData } from "@/data/Marketplace/Marketplace";
 interface Props {
   category: string;
   setCategory: React.Dispatch<React.SetStateAction<string>>;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Filters = ({ category, setCategory }: Props) => {
+const Filters = ({ category, setCategory, setSearch }: Props) => {
   return (
     <div className="flex items-center flex-wrap gap-y-4 gap-x-12 justify-center mx-auto md:w-126">
       {MarketplaceFilterData.map((item, i) => (
@@ -19,7 +20,10 @@ const Filters = ({ category, setCategory }: Props) => {
                  ? "text-[#a95bf3]"
                  : " text-[#f2f2f2] hover:text-[#c69bef] transition duration-200"
              }`}
-          onClick={() => setCategory(item.toLowerCase())}
+          onClick={() => {
+            setCategory(item.toLowerCase());
+            setSearch("");
+          }}
         >
           {item}
         </span>
