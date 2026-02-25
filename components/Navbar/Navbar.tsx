@@ -80,7 +80,7 @@ const Navbar = () => {
                     exit={{ opacity: 0 }}
                     className="col-span-2 flex flex-col gap-y-2"
                   >
-                    <span className="text-white">
+                    <span className="text-white text-center">
                       {user?.user_metadata?.fullName || user?.email || "User"}
                     </span>
                     <SecondaryButton

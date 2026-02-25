@@ -19,7 +19,7 @@ const Home = () => {
 
         <div
           className="xl:container xl:mx-auto flex flex-col lg:flex-row-reverse lg:gap-x-12 gap-y-12 items-center pb-12
-        pt-24"
+          pt-20 md:pt-24"
         >
           <MotionElement
             elem="img"
